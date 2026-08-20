@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Stok Sistem Farmasi</title>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #f7e9ea;
+  }
+
+  /* ===================================================
+     GANTI ANGKA INI kalau bar Google Apps Script masih
+     kelihatan sedikit / kepotong terlalu banyak.
+     Biasanya tinggi bar itu sekitar 30-40px.
+     =================================================== */
+  :root {
+    --banner-height: 34px;
+  }
+
+  .app-frame-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  .app-frame {
+    position: absolute;
+    top: calc(var(--banner-height) * -1);
+    left: 0;
+    width: 100%;
+    height: calc(100% + var(--banner-height));
+    border: 0;
+  }
+
+  /* Loading indicator sementara iframe dimuat */
+  .loading-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7e9ea;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #7d1721;
+    font-weight: 600;
+    z-index: 10;
+    transition: opacity .3s ease;
+  }
+
+  .loading-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+  <div class="loading-screen" id="loadingScreen">Memuat aplikasi...</div>
+
+  <div class="app-frame-wrap">
+    <iframe
+      class="app-frame"
+      id="appFrame"
+      src="https://script.google.com/macros/s/AKfycbzghLnZLCLN3F8sbfBue51wkqae0APaAALuso-W1uZczHn4ZPOCtGhPwVbIRx_mSqcd4g/exec"
+      title="Cek Stok Sistem Farmasi"
+      allow="clipboard-write"
+    ></iframe>
+  </div>
+
+  <script>
+    document.getElementById('appFrame').addEventListener('load', function () {
+      document.getElementById('loadingScreen').classList.add('hide');
+    });
+  </script>
+
+</body>
+</html>
