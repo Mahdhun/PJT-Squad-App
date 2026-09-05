@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PJT Squad</title>
-
+<link rel="icon" type="image/png" sizes="32x32" href="duns-favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="duns-favicon-16.png">
+<link rel="shortcut icon" href="duns-favicon.ico">
+<link rel="apple-touch-icon" href="duns-apple-touch-icon.png">
 <style>
   html, body {
     margin: 0;
@@ -13,7 +16,6 @@
     overflow: hidden;
     background: #f7e9ea;
   }
-
   /* ===================================================
      GANTI ANGKA INI kalau bar Google Apps Script masih
      kelihatan sedikit / kepotong terlalu banyak.
@@ -22,7 +24,6 @@
   :root {
     --banner-height: 0px;
   }
-
   .app-frame-wrap {
     position: fixed;
     top: 0;
@@ -31,7 +32,6 @@
     bottom: 0;
     overflow: hidden;
   }
-
   .app-frame {
     position: absolute;
     top: calc(var(--banner-height) * -1);
@@ -40,7 +40,6 @@
     height: calc(100% + var(--banner-height));
     border: 0;
   }
-
   /* Loading indicator sementara iframe dimuat */
   .loading-screen {
     position: fixed;
@@ -55,7 +54,6 @@
     z-index: 10;
     transition: opacity .3s ease;
   }
-
   .loading-screen.hide {
     opacity: 0;
     pointer-events: none;
@@ -63,9 +61,7 @@
 </style>
 </head>
 <body>
-
   <div class="loading-screen" id="loadingScreen">Memuat aplikasi...</div>
-
   <div class="app-frame-wrap">
     <iframe
   class="app-frame"
@@ -75,12 +71,10 @@
   allow="clipboard-write"
 ></iframe>
   </div>
-
   <script>
     document.getElementById('appFrame').addEventListener('load', function () {
       document.getElementById('loadingScreen').classList.add('hide');
     });
   </script>
-
 </body>
 </html>
